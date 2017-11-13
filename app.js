@@ -1,7 +1,12 @@
 var firstAndPike = {
   min: 23,
   max: 65,
-  avgCookieSale: 6.3
+  avgCookieSale: 6.3,
+  avgCust: function () {
+    var ranNum = Math.random() * (this.max - this.min) + this.min;
+    console.log('ranNum', ranNum);
+    return ranNum;
+  },
 };
 
 var seaTacAirport = {
