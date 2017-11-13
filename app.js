@@ -3,9 +3,14 @@ var firstAndPike = {
   max: 65,
   avgCookieSale: 6.3,
   avgCust: function () {
-    var ranNum = Math.random() * (this.max - this.min) + this.min;
-    return ranNum;
+    return Math.random() * (this.max - this.min) + this.min;
   },
+  hours: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm'],
+  cookiesPerHour: function(){
+    for(var i = 0; i < this.hours.length; i++) {
+      console.log(this.hours[i]);
+    }
+  }
 };
 
 var seaTacAirport = {
@@ -26,6 +31,7 @@ var seattleCenter = {
     var ranNum = Math.random() * (this.max - this.min) + this.min;
     return ranNum;
   },
+
 };
 
 var capitolHill = {
