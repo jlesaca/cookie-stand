@@ -18,19 +18,15 @@ var seattleCenter = new Store('seattleCenter', 11, 38, 3.7);
 var capitolHill = new Store('capitolHill', 20, 38, 2.3);
 var alki = new Store('alki', 2, 16, 4.6);
 
-Store.prototype.ranNumCust = function() {
+Store.prototype.ranNumCust = function() { //for avg customers
   return Math.round(Math.random() * (this.max - this.min) + this.min);
 };
 
-stores[0].ranNumCust();
-
-Store.prototype.cSales = function() {
+Store.prototype.cSales = function() { // cookie sales
   return Math.round(this.ranNumCust() * this.avgCookie);
 };
 
-stores[0].cSales();
-
-Store.tblhours = function() {
+Store.prototype.tblhours = function() { //creates table for table hours
   var tableEl = document.getElementById('main-tbl');
   var tbody = document.createElement('tbody');
   tbody.id = 'tbodyEL';
@@ -46,7 +42,6 @@ Store.tblhours = function() {
     trEl.appendChild(tdEl);
   }
 };
-Store.tblhours();
 
 Store.prototype.cPerHour = function() {
   var totalDay = 0;
