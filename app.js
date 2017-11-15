@@ -25,11 +25,11 @@ Store.prototype.getHourlyCookies = function() {
     this.hourlyCookies.push(Math.floor(this.getCustomersPerHour() * this.avgCookies));
     this.dailyTotal += this.hourlyCookies[i];
   }
+  return this.hourlyCookies;
 };
 
-Store.prototype.ranNumCust = function() { //for avg customers
-  return Math.round(Math.random() * (this.max - this.min) + this.min);
-};
+Store.prototype.custPerHour = function() { //for avg customers
+  return getRandomNum(this.minCust, this.maxCust);
 
 Store.prototype.cSales = function() { // cookie sales
   return Math.round(this.ranNumCust() * this.avgCookie);
