@@ -2,7 +2,6 @@
 
 var hours = ['7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm'];
 var stores = [];
-console.log(stores);
 
 function Store(name, min, max, avgCookie) { //constructor
   this.name = name;
@@ -12,11 +11,11 @@ function Store(name, min, max, avgCookie) { //constructor
   stores.push(this);
 }
 
-var firstAndPike = new Store('1st and Pike', 23, 65, 6.3);
-var seaTacAirport = new Store('seaTacAirport', 3, 24, 1.2);
-var seattleCenter = new Store('seattleCenter', 11, 38, 3.7);
-var capitolHill = new Store('capitolHill', 20, 38, 2.3);
-var alki = new Store('alki', 2, 16, 4.6);
+new Store('1st and Pike', 23, 65, 6.3);
+new Store('seaTacAirport', 3, 24, 1.2);
+new Store('seattleCenter', 11, 38, 3.7);
+new Store('capitolHill', 20, 38, 2.3);
+new Store('alki', 2, 16, 4.6);
 
 Store.prototype.ranNumCust = function() { //for avg customers
   return Math.round(Math.random() * (this.max - this.min) + this.min);
