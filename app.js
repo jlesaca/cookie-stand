@@ -52,7 +52,6 @@ function createTableHead() {
 
 function createTableBody() {
   var tbodyEl = document.createElement('tbody');
-
   for(var k = 0; k < stores.length; k++) {
     var bodyRow = createTableRow(stores[k].name, stores[k].hourlyCookies, stores[k].dailyTotal);
     tbodyEl.appendChild(bodyRow);
@@ -96,7 +95,7 @@ function onSubmit(event) {
   new Store(myFormData.name, myFormData.minCust, myFormData.maxCust, myFormData.avgCookies);
   function updateBody() {
     var bodyElupdate = document.getElementById('newBody');
-    var bodyRow = createTableRow(stores[newNumber].name, stores[newNumber].hourly, stores[newNumber].dailyTotal);
+    var bodyRow = createTableRow(stores[newNumber].name, stores[newNumber].hourlyCookies, stores[newNumber].dailyTotal);
     bodyElupdate.appendChild(bodyRow);
     newNumber += 1;
     return bodyElupdate;
