@@ -3,10 +3,10 @@
 var hours = ['7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm'];
 var stores = [];
 
-function Store(name, min, max, avgCookie) { //constructor
+function Store(name, minCust, maxCust, avgCookie) { //constructor
   this.name = name;
-  this.minCust = min;
-  this.maxCust = max;
+  this.minCust = minCust;
+  this.maxCust = maxCust;
   this.avgCookies = avgCookie;
   this.hourlyCookies = [];
   this.dailyTotal = 0;
@@ -83,17 +83,14 @@ var formEl = document.getElementById('form');
 
 function onSubmit(event) {
   event.preventDefault();
-  console.log('submit event', event.target.area.value);
-  console.log('the form was submitted');
-var formData = {
-    area: event.target.area.value,
-    min: event.target.min.value,
-    max: event.target.min.value,
+  var myFormData = {
+    name: event.target.name.value,
+    minCust: event.target.minCust.value,
+    maxCust: event.target.maxCust.value,
     avgCookies: event.target.avgCookies.value
   };
-
-  var newStore = new Store (formData.area, formData.min, formData.max, formDate.avgCookies);
-  newStore.createTable();
+  console.log(myFormData);
+  new Store(myFormData.name, myFormData.minCust, myFormData.maxCust, myFormData.avgCookies);
 }
+
 formEl.addEventListener('submit', onSubmit);
-console.log('submit', onSubmit());
