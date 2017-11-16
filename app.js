@@ -1,9 +1,9 @@
 'strict';
 
-var hours = ['7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm'];
+var hours = ['7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 var stores = [];
 
-function Store(name, minCust, maxCust, avgCookie) { //constructor
+function Store(name, minCust, maxCust, avgCookie) { //constructor/function definition.
   this.name = name;
   this.minCust = minCust;
   this.maxCust = maxCust;
@@ -14,8 +14,7 @@ function Store(name, minCust, maxCust, avgCookie) { //constructor
   this.getHourlyCookies();
 }
 
-
-Store.prototype.getHourlyCookies = function() {
+Store.prototype.getHourlyCookies = function() { //creating a get hourly cookie series of steps.
   for(var i = 0; i < hours.length; i++){
     this.hourlyCookies.push(Math.floor(this.custPerHour() * this.avgCookies));
     this.dailyTotal += this.hourlyCookies[i];
@@ -27,6 +26,13 @@ Store.prototype.custPerHour = function() { //for avg customers
   return getRandomNum(this.minCust, this.maxCust);
 };
 
+function createTable() {
+  var tableEl = document.getElementById('main-tbl');
+  tableEl.id = 'newBody';
+  tableEl.appendChild(createTableHead());
+  tableEl.appendChild(createTableBody());
+}
+
 new Store('1st and Pike', 23, 65, 6.3);
 new Store('Seatac Airport', 3, 24, 1.2);
 new Store('Seattle Center', 11, 38, 3.7);
@@ -35,12 +41,6 @@ new Store('Alki', 2, 16, 4.6);
 
 function getRandomNum(minCust, maxCust) {
   return Math.round(Math.random() * (maxCust - minCust) + minCust);
-}
-
-function createTable() {
-  var tableEl = document.getElementById('main-tbl');
-  tableEl.appendChild(createTableHead());
-  tableEl.appendChild(createTableBody());
 }
 
 function createTableHead() {
@@ -79,6 +79,9 @@ function createTableRow(vertHead, dataPoints, vertFoot) {
   return trEl;
 }
 
+createTable();
+
+var newNumber = 5;
 var formEl = document.getElementById('form');
 
 function onSubmit(event) {
@@ -91,6 +94,14 @@ function onSubmit(event) {
   };
   console.log(myFormData);
   new Store(myFormData.name, myFormData.minCust, myFormData.maxCust, myFormData.avgCookies);
+  function updateBody() {
+    var bodyElupdate = document.getElementById('newBody');
+    var bodyRow = createTableRow(stores[newNumber].name, stores[newNumber].hourly, stores[newNumber].dailyTotal);
+    bodyElupdate.appendChild(bodyRow);
+    newNumber += 1;
+    return bodyElupdate;
+  }
+  updateBody();
 }
 
 formEl.addEventListener('submit', onSubmit);
