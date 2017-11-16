@@ -78,3 +78,22 @@ function createTableRow(vertHead, dataPoints, vertFoot) {
 
   return trEl;
 }
+
+var formEl = document.getElementById('form');
+
+function onSubmit(event) {
+  event.preventDefault();
+  console.log('submit event', event.target.area.value);
+  console.log('the form was submitted');
+var formData = {
+    area: event.target.area.value,
+    min: event.target.min.value,
+    max: event.target.min.value,
+    avgCookies: event.target.avgCookies.value
+  };
+
+  var newStore = new Store (formData.area, formData.min, formData.max, formDate.avgCookies);
+  newStore.createTable();
+}
+formEl.addEventListener('submit', onSubmit);
+console.log('submit', onSubmit());
