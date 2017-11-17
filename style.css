@@ -1,0 +1,23 @@
+header {
+  border-bottom: 2px solid gray;
+  background-image: salmon.png;
+  background-position: center;
+  position: relative;
+  background-color: #199DB2;
+  color: #aaaaaa
+}
+
+main {
+  background-color: #4AABB2;
+  margin: 0px;
+}
+
+footer {
+  border-top: 2px solid gray;
+  background-color: #199DB2;
+}
+
+#header-list li {
+  display: inline;
+  padding: 10px 10px;
+}
