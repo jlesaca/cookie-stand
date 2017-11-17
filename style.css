@@ -3,21 +3,34 @@ header {
   background-image: salmon.png;
   background-position: center;
   position: relative;
-  background-color: #199DB2;
-  color: #aaaaaa
+  background-color: #9ACCFF
+;
 }
 
 main {
-  background-color: #4AABB2;
+  background-color: #1966B2;
   margin: 0px;
 }
 
 footer {
   border-top: 2px solid gray;
-  background-color: #199DB2;
+  background-color: #9ACCFF;
 }
 
 #header-list li {
   display: inline;
   padding: 10px 10px;
+}
+
+.row {
+  width: 200px;
+  display: inline;
+}
+
+#fishy {
+  float: right;
+}
+
+#main-table{
+  border-bottom: 2px solid gray;
 }
