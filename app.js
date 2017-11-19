@@ -80,7 +80,7 @@ function createTableRow(vertHead, dataPoints, vertFoot) {
 
 createTable();
 
-var newNumber = 5;
+
 var formEl = document.getElementById('form');
 
 function onSubmit(event) {
@@ -95,9 +95,8 @@ function onSubmit(event) {
   new Store(myFormData.name, myFormData.minCust, myFormData.maxCust, myFormData.avgCookies);
   function updateBody() {
     var bodyElupdate = document.getElementById('newBody');
-    var bodyRow = createTableRow(stores[newNumber].name, stores[newNumber].hourlyCookies, stores[newNumber].dailyTotal);
+    var bodyRow = createTableRow(stores[stores.length - 1].name, stores[stores.length - 1].hourlyCookies, stores[stores.length - 1].dailyTotal);
     bodyElupdate.appendChild(bodyRow);
-    newNumber += 1;
     return bodyElupdate;
   }
   updateBody();
